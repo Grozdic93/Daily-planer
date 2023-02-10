@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/1021eb46d4.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary " data-bs-theme="dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="./img/icons8-checklist-50.png" alt="" width="30" height="30"
+                        class="me-2">
+                    MyPlanner</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tasks</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Settings</a>
+                        </li>
+
+
+                    </ul>
+                    <div class="notification"><img src="./img/icons8-bell-24.png" alt="" width="30" height="30"
+                            class="mx-3"></div>
+                </div>
+            </div>
+        </nav>
+        <!-- navbar -->
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+
+
+            <div class="hero-container">
+
+                <div class="hero-text">
+                    <h1>Plan your day better!</h1>
+
+                    <a href="#" class="btn btn-primary btn-lg start">Get Started</a>
+                    <div class="clickMe">Click me!
+
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <!-- HERO SECTION -->
+    </header>
+    <main>
+
+        <!-- container with sort btn -->
+
+        <div class="container-md d-flex justify-content-between my-4">
+            <span>
+                <h3>Weekly Tasks</h3>
+            </span>
+            <span class="sort">sort by priority: <i class="fa-solid fa-arrow-up-wide-short"></i></span>
+        </div>
+        <!-- container with sort btn -->
+
+        <!-- GRID LAYOUT -->
+        <div class="container-xl d-flex flex-column  justify-content-center box">
+            <div id="grid" class="row row-cols-1 row-cols-xl-3 row-cols-md-2 row-cols-sm-1 mx-auto">
+
+
+
+
+            </div>
+        </div>
+
+        <!-- GRID LAYOUT -->
+    </main>
+    <!-- FOOTER -->
+    <footer class="container-fluid pt-5">
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="pb-5"><span>Sing up for newsletter</span> <input class="mx-2" type="text">
+            <button class="btn btn-outline-secondary">subscribe</button>
+        </div>
+        <div class="copy opacity-75 pb-2 mb-4">Copyright &copy; 2023 Dusan Grozdic</div>
+    </footer>
+    <!-- FOOTER -->
+    <script src="json.js"></script>
+    <script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="index.js"></script>
+</body>
+
+</html>

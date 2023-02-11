@@ -1,19 +1,23 @@
 /* IMPORTING FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Babylonica&display=swap');
 
+
+body {
+    background: linear-gradient(170deg, rgba(49, 57, 73, 0.8) 20%, rgba(49, 57, 73, 0.5) 20%, rgba(49, 57, 73, 0.5) 35%, rgba(41, 48, 61, 0.6) 35%, rgba(41, 48, 61, 0.8) 45%, rgba(31, 36, 46, 0.5) 45%, rgba(31, 36, 46, 0.8) 75%, rgba(49, 57, 73, 0.5) 75%), linear-gradient(45deg, rgba(20, 24, 31, 0.8) 0%, rgba(41, 48, 61, 0.8) 50%, rgba(82, 95, 122, 0.8) 50%, rgba(133, 146, 173, 0.8) 100%) #313949;
+    ;
+}
+
+
 /* STYLING HERO SECTION */
-
-
 .hero-text {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     color: white;
-    background-color: hsla(0, 0%, 0%, 0.4);
+    background-color: hsla(0, 0%, 0%, 0.6);
     padding: 1rem;
-
-
+    width: clamp(20rem, 35vw, 30rem);
 }
 
 .hero-text h1 {
@@ -37,12 +41,17 @@
 .sort {
     display: inline-block;
     cursor: pointer;
-    color: #000;
+    color: white;
     transition: all 200ms ease;
+}
+
+.white {
+    color: white;
 }
 
 .sort:hover {
     transform: scale(1.2);
+    color: #d92626;
 }
 
 /* STYLING FOOTER */
@@ -78,7 +87,7 @@ footer input {
     height: 2.2rem;
 }
 
-/* FOR JS */
+/* FOR ELEMENTS WHICH GONNA BE CREATED VIA JS */
 
 .task-btn {
     max-height: 25px;
@@ -99,8 +108,16 @@ footer input {
 
 }
 
+
+
 .box-shadow {
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.7);
+    box-shadow: 0 0 20px 0 black;
+    transition: all 300ms ease;
+}
+
+.box-shadow:hover {
+    box-shadow: 0 0 20px 0 #d92626;
+    transform: scale(1.02);
 }
 
 .box {
@@ -112,67 +129,135 @@ footer input {
 }
 
 
-/* CLICK ME ANIMATION */
+/* GET STARTED ANIMATED BTN */
 
-.clickMe {
-
-    color: whitesmoke;
-    font-size: 16px;
-    border: 1px solid white;
-    top: -170px;
-    right: -460px;
-    width: 90px;
-    height: 30px;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px 0px 20px 20px;
-
+.animated-button {
+    background: linear-gradient(-30deg, #3d0b0b 50%, #2b0808 50%);
+    padding: 20px 40px;
+    margin: 12px;
+    display: inline-block;
+    -webkit-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    overflow: hidden;
+    color: #f7d4d4;
+    font-size: 20px;
+    letter-spacing: 2.5px;
     text-align: center;
-    animation: colorChange 5s ease-in-out infinite
+    text-transform: uppercase;
+    text-decoration: none;
+    -webkit-box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes colorChange {
+.animated-button::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #ad8585;
+    opacity: 0;
+    -webkit-transition: .2s opacity ease-in-out;
+    transition: .2s opacity ease-in-out;
+}
 
+.animated-button:hover::before {
+    opacity: 0.2;
+}
 
+.animated-button span {
+    position: absolute;
+}
 
-    15% {
-        color: rgb(211, 211, 101)
-    }
+.animated-button span:nth-child(1) {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(43, 8, 8, 0)), to(#d92626));
+    background: linear-gradient(to left, rgba(43, 8, 8, 0), #d92626);
+    -webkit-animation: 2s animateTop linear infinite;
+    animation: 2s animateTop linear infinite;
+}
 
-
-
-
-    30% {
-        color: rgb(220, 114, 97)
-    }
-
-
-
-
-    45% {
-        color: rgb(128, 223, 230)
-    }
-
-
-
-
-    60% {
-        color: rgb(207, 101, 211)
-    }
-
-
-
-
-    75% {
-        color: rgb(63, 167, 69)
+@keyframes animateTop {
+    0% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
     }
 
     100% {
-        color: whitesmoke;
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+}
+
+.animated-button span:nth-child(2) {
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 2px;
+    background: -webkit-gradient(linear, left bottom, left top, from(rgba(43, 8, 8, 0)), to(#d92626));
+    background: linear-gradient(to top, rgba(43, 8, 8, 0), #d92626);
+    -webkit-animation: 2s animateRight linear -1s infinite;
+    animation: 2s animateRight linear -1s infinite;
+}
+
+@keyframes animateRight {
+    0% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
     }
 
+    100% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+}
 
+.animated-button span:nth-child(3) {
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 2px;
+    background: -webkit-gradient(linear, left top, right top, from(rgba(43, 8, 8, 0)), to(#d92626));
+    background: linear-gradient(to right, rgba(43, 8, 8, 0), #d92626);
+    -webkit-animation: 2s animateBottom linear infinite;
+    animation: 2s animateBottom linear infinite;
+}
 
+@keyframes animateBottom {
+    0% {
+        -webkit-transform: translateX(-100%);
+        transform: translateX(-100%);
+    }
+
+    100% {
+        -webkit-transform: translateX(100%);
+        transform: translateX(100%);
+    }
+}
+
+.animated-button span:nth-child(4) {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    width: 2px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(43, 8, 8, 0)), to(#d92626));
+    background: linear-gradient(to bottom, rgba(43, 8, 8, 0), #d92626);
+    -webkit-animation: 2s animateLeft linear -1s infinite;
+    animation: 2s animateLeft linear -1s infinite;
+}
+
+@keyframes animateLeft {
+    0% {
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
+
+    100% {
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
 }

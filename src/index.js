@@ -87,14 +87,14 @@ function createElements() {
 
 }
 
-// | | EVENT LISTENER FOR START BUTTON | |
+// | | ATTACHING createElements FUNCTION TO 'GET STARTED' BUTTON| |
 
 start.addEventListener('click', createElements)
 
 
+
+
 // | | SETTING UP EVENT LISTENERS FOR DELETING AND COMPLETING TASKS | |
-
-
 
 container.addEventListener('click', function (e) {
     if (e.target.className == 'btn btn-danger delete') {
@@ -128,11 +128,24 @@ container.addEventListener('click', function (e) {
 
 
     }
+
+
     // | | INCREASING PRIORITY LEVEL | |
+
     if (e.target.className == "priority-level bg-danger" || e.target.className == "priority-level bg-warning" || e.target.className == "priority-level bg-success") {
         let index = e.target.getAttribute("data1");
-        myArray[index].importance = e.target.innerHTML * 1 + 1;
-        e.target.innerHTML = e.target.textContent * 1 + 1
+
+        // IF PRIORITY LEVEL IS 5, DO NOT INCREASE IT
+        if (e.target.innerHTML == 5) {
+            e.target.innerHTML = 5;
+        }
+        // ELSE INCREASE IT
+        else {
+            myArray[index].importance = e.target.innerHTML * 1 + 1;
+            e.target.innerHTML = e.target.textContent * 1 + 1
+        }
+
+
         if (e.target.innerHTML > 3) {
             e.target.className = "priority-level bg-danger"
         }
@@ -149,8 +162,15 @@ container.addEventListener('contextmenu', function (ev) {
     ev.preventDefault();
     if (ev.target.className == "priority-level bg-danger" || ev.target.className == "priority-level bg-warning" || ev.target.className == "priority-level bg-success") {
         let index = ev.target.getAttribute("data1");
-        myArray[index].importance = ev.target.innerHTML * 1 - 1;
-        ev.target.innerHTML = ev.target.textContent * 1 - 1;
+        // IF PRIORITY LEVEL IS 0, DO NOT DECREASE IT
+        if (ev.target.innerHTML < 1) {
+            ev.target.innerHTML = 0;
+        }
+        // ELSE DECREASE IT
+        else {
+            myArray[index].importance = ev.target.innerHTML * 1 - 1;
+            ev.target.innerHTML = ev.target.textContent * 1 - 1;
+        }
         if (ev.target.innerHTML < 2) {
             ev.target.className = "priority-level bg-success"
         }

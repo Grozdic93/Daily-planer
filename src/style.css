@@ -89,6 +89,15 @@ footer input {
 
 /* FOR ELEMENTS WHICH GONNA BE CREATED VIA JS */
 
+
+
+
+
+
+.flex {
+    justify-content: center;
+}
+
 .task-btn {
     max-height: 25px;
     display: flex;
@@ -110,15 +119,6 @@ footer input {
 
 
 
-.box-shadow {
-    box-shadow: 0 0 20px 0 black;
-    transition: all 300ms ease;
-}
-
-.box-shadow:hover {
-    box-shadow: 0 0 20px 0 #d92626;
-    transform: scale(1.02);
-}
 
 .box {
     min-height: 50vh;
@@ -260,4 +260,50 @@ footer input {
         -webkit-transform: translateY(100%);
         transform: translateY(100%);
     }
+}
+
+/* 
+ANIMATING CARDS ON HOVER */
+
+
+.myCard:before,
+.myCard:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    background: #fff;
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.myCard:hover:before {
+    transform: rotate(20deg);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+
+
+}
+
+.myCard:hover:after {
+    transform: rotate(10deg);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
+
+}
+
+
+.myCard {
+    box-shadow: 0 0 20px 0 black;
+    transition: all 300ms ease;
+    border-radius: 4px;
+
+}
+
+.details {
+    transform: translateX(-50px);
+    opacity: 0;
+
+
 }

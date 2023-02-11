@@ -33,8 +33,8 @@ function createElements() {
         else {
             className = "bg-danger";
         }
-        container.innerHTML += `<div data="${i}" class="col mb-4 myCard">
-        <div class="card p-3 box-shadow" style="width: 22rem;">
+        container.innerHTML += `<div data="${i}" class="col mb-4 d-flex flex">
+        <div class="card p-3 myCard" style="width: 22rem;">
             <div class="d-flex justify-content-between align-items-center">
                 <span class="mb-2">
                     <button class="btn btn-info btn-small text-white fs-6 task-btn">Task</button>
@@ -43,7 +43,7 @@ function createElements() {
                         class="fa-solid fa-ellipsis-vertical ms-3"></i>
                 </span>
             </div>
-            <img src="${myArray[i].image}" class="card-img-top img-thumbnail" alt="...">
+            <img src="${myArray[i].image}" class="card-img-top img-thumbnail imgBx" alt="...">
             <div class="card-body">
                 <h5 class="card-title text-center">${myArray[i].taskName}</h5>
                 <p class="card-text text-center">${myArray[i].description}</p>
@@ -59,7 +59,7 @@ function createElements() {
 
 
             </ul>
-            <div class="card-bod text-end mt-3">
+            <div class="card-bod text-end mt-3 details" data2-${i}>
                 <button class="btn btn-danger delete"><i class="fa-solid fa-trash-can"></i>
                     Delete</button>
                 <button class="btn btn-success done"><i class="fa-regular fa-circle-check"></i>
@@ -83,6 +83,24 @@ function createElements() {
 
         })
 
+    }
+
+
+
+    for (let i = 0; i < myArray.length; i++) {
+        let hoverArea = document.querySelectorAll('.myCard');
+        hoverArea[i].addEventListener('mouseover', function (e) {
+            let details = document.querySelectorAll('.details');
+            details[i].style.opacity = '1';
+            details[i].style.transition = 'all 1s ease'
+            details[i].style.transform = 'translateX(0px)'
+        })
+        hoverArea[i].addEventListener('mouseout', function (e) {
+            let details = document.querySelectorAll('.details');
+            details[i].style.opacity = '0';
+            details[i].style.transition = 'all 1s ease'
+            details[i].style.transform = 'translateX(-50px)'
+        })
     }
 
 }
@@ -202,5 +220,15 @@ sort.addEventListener('click', function () {
 
 
 })
+
+
+// show  details
+
+
+
+
+
+
+
 
 

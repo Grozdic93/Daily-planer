@@ -1,9 +1,6 @@
-
-
-
 FOR TRAINERS------>
 
-1. please use "npm init" to unpack bootstrap and popper
+1. please use "npm install" to unpack bootstrap and popper
 
 2. to start, click on "GET STARTED" button,
 

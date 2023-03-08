@@ -215,7 +215,7 @@ sort.addEventListener('click', function () {
     myArray.sort(function (a, b) {
         return a.done - b.done;
     })
-    clearHTML();
+
     createElements();
 
 
